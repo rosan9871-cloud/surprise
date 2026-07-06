@@ -1,0 +1,293 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: linear-gradient(135deg, #020111 0%, #0a1a3f 40%, #061a3a 70%, #000814 100%);
+  background-size: 300% 300%;
+  animation: bgShift 18s ease infinite;
+  color: #eaf2ff;
+}
+
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ---------- Particles ---------- */
+#particles {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  bottom: -10px;
+  background: rgba(120, 180, 255, 0.55);
+  border-radius: 50%;
+  filter: blur(0.5px);
+  animation-name: floatUp;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% {
+    transform: translateY(-110vh) translateX(20px);
+    opacity: 0;
+  }
+}
+
+/* ---------- Screens ---------- */
+.screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  transition: opacity 0.4s ease;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ---------- Landing card ---------- */
+.card {
+  text-align: center;
+  padding: 50px 40px;
+  max-width: 520px;
+  width: 90%;
+  border-radius: 24px;
+  background: rgba(15, 25, 55, 0.55);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(120, 170, 255, 0.25);
+  animation: floatCard 4s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+.glow-card {
+  box-shadow:
+    0 0 30px rgba(80, 140, 255, 0.35),
+    0 0 80px rgba(60, 100, 220, 0.25),
+    inset 0 0 40px rgba(80, 140, 255, 0.08);
+  animation: floatCard 4s ease-in-out infinite, pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 30px rgba(80, 140, 255, 0.35),
+      0 0 80px rgba(60, 100, 220, 0.25),
+      inset 0 0 40px rgba(80, 140, 255, 0.08);
+  }
+  50% {
+    box-shadow:
+      0 0 50px rgba(80, 160, 255, 0.55),
+      0 0 120px rgba(60, 100, 220, 0.4),
+      inset 0 0 60px rgba(80, 160, 255, 0.15);
+  }
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  background: linear-gradient(90deg, #ffffff, #9cc2ff, #ffffff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  color: #b8c9ea;
+  margin-bottom: 34px;
+  line-height: 1.5;
+}
+
+.reveal-btn {
+  border: none;
+  cursor: pointer;
+  padding: 16px 36px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  border-radius: 50px;
+  color: #fff;
+  background: linear-gradient(135deg, #3b6dff, #7f5bff);
+  box-shadow: 0 0 25px rgba(90, 120, 255, 0.6);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.reveal-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 0 40px rgba(120, 150, 255, 0.85);
+}
+
+.reveal-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ---------- Loading screen ---------- */
+.loading-content {
+  text-align: center;
+  width: 85%;
+  max-width: 420px;
+}
+
+.loading-text {
+  font-size: 1.2rem;
+  margin-bottom: 26px;
+  color: #cfe0ff;
+  animation: fadePulse 1.5s ease-in-out infinite;
+}
+
+@keyframes fadePulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 14px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  border: 1px solid rgba(120, 170, 255, 0.3);
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #3b6dff, #7f5bff, #3b6dff);
+  background-size: 200% 100%;
+  animation: barShine 1.2s linear infinite;
+  transition: width 0.15s linear;
+}
+
+@keyframes barShine {
+  to { background-position: 200% center; }
+}
+
+.progress-percent {
+  margin-top: 14px;
+  font-size: 0.95rem;
+  color: #9fb6e6;
+}
+
+/* ---------- Jumpscare ---------- */
+#jumpscare-screen {
+  background: #000;
+  overflow: hidden;
+  z-index: 999;
+  cursor: none;
+}
+
+#horror-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: translate(-50%, -50%) scale(1);
+  animation: zoomIn 3s ease-in forwards;
+}
+
+@keyframes zoomIn {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  100% { transform: translate(-50%, -50%) scale(1.35); }
+}
+
+.flash {
+  position: absolute;
+  inset: 0;
+  background: red;
+  opacity: 0;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.flash.active {
+  animation: flashScreen 0.25s ease-out;
+}
+
+@keyframes flashScreen {
+  0% { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+
+.shake {
+  animation: shakeScreen 0.4s infinite;
+}
+
+@keyframes shakeScreen {
+  0% { transform: translate(0px, 0px); }
+  20% { transform: translate(-12px, 8px); }
+  40% { transform: translate(10px, -10px); }
+  60% { transform: translate(-8px, 12px); }
+  80% { transform: translate(12px, -6px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+/* ---------- End screen ---------- */
+#end-screen {
+  background: #000;
+  z-index: 998;
+}
+
+.end-content {
+  text-align: center;
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.end-title {
+  font-size: 2.4rem;
+  margin-bottom: 14px;
+}
+
+.end-credit {
+  font-size: 1.1rem;
+  color: #9fb6e6;
+  margin-bottom: 36px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 480px) {
+  .title { font-size: 1.5rem; }
+  .subtitle { font-size: 0.95rem; }
+  .reveal-btn { padding: 14px 28px; font-size: 1rem; }
+  .end-title { font-size: 1.8rem; }
+}
