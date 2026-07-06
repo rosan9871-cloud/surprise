@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You Have A Surprise!</title>
+<link rel="stylesheet" href="surprise.css">
+</head>
+<body>
+
+  <!-- Floating particles background -->
+  <div id="particles"></div>
+
+  <!-- LANDING SCREEN -->
+  <div id="landing-screen" class="screen">
+    <div class="card glow-card">
+      <h1 class="title">🎁 I Have A Surprise For You!</h1>
+      <p class="subtitle">Someone has left a special surprise for you. Click the button below to reveal it.</p>
+      <button id="reveal-btn" class="reveal-btn">Reveal Surprise 🎉</button>
+    </div>
+  </div>
+
+  <!-- LOADING SCREEN -->
+  <div id="loading-screen" class="screen hidden">
+    <div class="loading-content">
+      <p class="loading-text">Preparing your surprise...</p>
+      <div class="progress-bar-container">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+      <p id="progress-percent" class="progress-percent">0%</p>
+    </div>
+  </div>
+
+  <!-- JUMPSCARE SCREEN -->
+  <div id="jumpscare-screen" class="screen hidden">
+    <div id="flash" class="flash"></div>
+    <img id="horror-img" src="horror.png" alt="">
+  </div>
+
+  <!-- END SCREEN -->
+  <div id="end-screen" class="screen hidden">
+    <div class="end-content">
+      <h1 class="end-title">😂 YOU GOT PRANKED!</h1>
+      <p class="end-credit">By Roshan</p>
+       <p class="end-credit">have a nice day</p>
+      <button id="replay-btn" class="reveal-btn">Play Again</button>
+    </div>
+  </div>
+
+  <audio id="scream-audio" src="sound.mp3" preload="auto"></audio>
+
+  <script src="surprise.js"></script>
+</body>
+</html>
